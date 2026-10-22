@@ -101,6 +101,20 @@ function clearCalculator() {
     showMessage("Ready to calculate");
 }
 
+function deleteLastDigit() {
+    if (currentInput === "Error" || resetDisplay) {
+        currentInput = "0";
+        resetDisplay = false;
+    } else if (currentInput.length > 1) {
+        currentInput = currentInput.slice(0, -1);
+    } else {
+        currentInput = "0";
+    }
+
+    updateDisplay();
+    showMessage("Last digit deleted");
+}
+
 function showMessage(message) {
     document.getElementById("message").textContent = message;
 }
